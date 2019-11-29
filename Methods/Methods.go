@@ -40,13 +40,11 @@ var Users = []User{
 
 // Fetches all the user details
 func GetAllUsers(c *gin.Context){
-	fmt.Println("Sending values to the user")
 	c.JSON(200, Users)
 }
 
 // Fetches a specific user detail
 func GetUserDetail(c *gin.Context){
-	fmt.Println("Getting user details")
 	name := c.Param("name")
 	for _ , value := range Users{
 		// This will return if the user is found in our DB
@@ -81,16 +79,38 @@ func CreateNewUser(c *gin.Context){
 			}
 		}
 		Users = append(Users , data)
-		c.JSON(200 , Users)
+		c.JSON(200 , data)
 	}
 }
 
 // Updation of new user
 func UpdateUserDetail(c *gin.Context){
 	var data User
-	err := c.BindJSON(data)
-	fmt.Println(err)
+	name := c.Param("name")
+	// Trying the BindJSON to test how error are handled when something is missing or empty
+	err := c.BindJSON(&data)
+	if err != nil{
+		c.JSON(400, gin.H{
+			"message" : err.Error(),
+		})
+	} else{
 
+		for _ , value := range Users{
+			
+			if strings.ToLower(value.Name) == strings.ToLower(name){
+				value.Age = data.Age
+				value.Company = data.Company
+				value.Location = data.Location
+				c.JSON(200 , gin.H{
+					"message" : "User " + value.Name + " is updated successfully.",
+					"data" : value,
+				})
+				return
+			}
+		}
+
+		c.String(200 , "Unale to find " + name + " in our DB for upation")	
+	}
 }
 
 // Delete all the user details
