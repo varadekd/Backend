@@ -10,10 +10,10 @@ import (
 
 // Creating struct of type user
 type User struct{
-	Name 		string 	`json:name`
-	Age			int		`json:age`		
-	Company		string 	`json:company`
-	Location 	string 	`json:location`
+	Name 		string 	`json:"name" binding:"required"`
+	Age			int		`json:"age" binding:"required"`		
+	Company		string 	`json:"company" binding:"required"`
+	Location 	string 	`json:"location"`
 }
 
 // Creating a global variable for users to be used across the module
@@ -62,9 +62,28 @@ func GetUserDetail(c *gin.Context){
 }
 
 // Creates a new user
-// func CreateNewUser(c *gin.Context){
+func CreateNewUser(c *gin.Context){
+	var data User
 
-// }
+	// Using ShouldBindJSON to check the functionality and handle error manually
+	err := c.ShouldBindJSON(&data)
+
+	if err != nil {
+		c.JSON(400 , gin.H{
+			"message" : err.Error(),
+		})
+	} else {
+		for _ , value := range Users{
+			// Checks for the duplicate entry in the users list
+			if strings.ToLower(value.Name) == strings.ToLower(data.Name){
+				c.String(200 , "User already exist cannot create copy of the same user")
+				return
+			}
+		}
+		Users = append(Users , data)
+		c.JSON(200 , Users)
+	}
+}
 
 // Delete all the user details
 func DeleteAllUsers(c *gin.Context){
