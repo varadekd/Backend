@@ -2,8 +2,6 @@ package Methods
 
 import (
 	"fmt"
-	// "io/ioutil"
-	// "bytes"
 	"strings"
 	"github.com/gin-gonic/gin"	
 )
