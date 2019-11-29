@@ -15,6 +15,7 @@ func main(){
 	router.GET("/users" , Methods.GetAllUsers)
 	router.GET("/user/:name" , Methods.GetUserDetail) // Passing params
 	router.POST("/user/new" , Methods.CreateNewUser) // Passing params 
+	router.PUT("/user/:name" , Methods.UpdateUserDetail) // Passing params
 	router.DELETE("/users" , Methods.DeleteAllUsers)
 	router.DELETE("/user/:name" , Methods.DeleteUserDetail) // Passing params
 

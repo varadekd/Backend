@@ -85,6 +85,14 @@ func CreateNewUser(c *gin.Context){
 	}
 }
 
+// Updation of new user
+func UpdateUserDetail(c *gin.Context){
+	var data User
+	err := c.BindJSON(data)
+	fmt.Println(err)
+
+}
+
 // Delete all the user details
 func DeleteAllUsers(c *gin.Context){
 	fmt.Println("Deleting users")
