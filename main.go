@@ -8,9 +8,10 @@ import (
 	"io"
 )
 
+// Om I find this particular thing a bit difficult to understand I understand the working but I am not getting any examples
 func checkRoute() gin.HandlerFunc {
     return func (c *gin.Context) {
-        fmt.Println("Mind if")
+        fmt.Println("I am inside the middleware")
     }
 }
 
@@ -33,7 +34,7 @@ func main(){
 
 	router := gin.Default()
 
-	// Rendering HTML files
+	// Rendering HTML files (This is just to check how template are loaded, I will convert this into full working module as we go forward)
 	router.LoadHTMLGlob("../resource/template/*.html")
 	// router.LoadHTMLGlob("../resource1/template/*.tmpl")
 
