@@ -12,7 +12,7 @@ import (
 func main(){
 	// Writing logs to file 
 	// If you want to print log only to console then please skip the below code from here 
-	
+
 	gin.DisableConsoleColor() // This will disbale log color (You can skip this if you want to logs with console colors)
 	// gin.ForceConsoleColor() // Use this line when you want to print logs using console color
 
@@ -22,7 +22,8 @@ func main(){
 		fmt.Println(err.Error())
 	}
 
-    gin.DefaultWriter = io.MultiWriter(file , os.Stdout) // This line helps us to write the logs in both file and console.
+	gin.DefaultWriter = io.MultiWriter(file , os.Stdout) // This line helps us to write the logs in both file and console.
+	//gin.DefaultWriter = io.MultiWriter(file) // This will help you to write log only to file 
 	// Till here 
 
 	router := gin.Default()
