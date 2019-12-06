@@ -1,0 +1,14 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /v1/users                 --> _/Users/izingamacmini/Backend/src/Methods.GetAllUsers (3 handlers)
+[GIN-debug] GET    /v1/user/:name            --> _/Users/izingamacmini/Backend/src/Methods.GetUserDetail (3 handlers)
+[GIN-debug] POST   /v1/user/new              --> _/Users/izingamacmini/Backend/src/Methods.CreateNewUser (3 handlers)
+[GIN-debug] PUT    /v1/user/:name            --> _/Users/izingamacmini/Backend/src/Methods.UpdateUserDetail (3 handlers)
+[GIN-debug] DELETE /v1/users                 --> _/Users/izingamacmini/Backend/src/Methods.DeleteAllUsers (3 handlers)
+[GIN-debug] DELETE /v1/user/:name            --> _/Users/izingamacmini/Backend/src/Methods.DeleteUserDetail (3 handlers)
+[GIN-debug] Listening and serving HTTP on :3000
+[GIN] 2019/12/06 - 12:55:33 | 200 |      328.52µs |             ::1 | GET      /v1/users

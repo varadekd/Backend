@@ -4,15 +4,29 @@ import (
 	"../src/Methods"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"os"
+	"io"
 )
 
 
 func main(){
+	// Writing logs to file 
+	// If you want to print log only to console then please skip the below code from here 
+	
+	gin.DisableConsoleColor() // This will disbale log color (You can skip this if you want to logs with console colors)
+	// gin.ForceConsoleColor() // Use this line when you want to print logs using console color
+
+	file , err := os.Create("server.log")
+
+	if err != nil{
+		fmt.Println(err.Error())
+	}
+
+    gin.DefaultWriter = io.MultiWriter(file , os.Stdout) // This line helps us to write the logs in both file and console.
+	// Till here 
+
 	router := gin.Default()
 	fmt.Println("Starting JSON server at 3000")
-
-	// Handling static routes
-	router.LoadHTMLGlob("../resource/index.html")
 
 	// Calling different methods to hanlde user grouping this routes as version v1
 	v1 := router.Group("/v1")
