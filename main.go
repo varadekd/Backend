@@ -32,7 +32,23 @@ func main(){
 	// Till here 
 
 	router := gin.Default()
-	fmt.Println("Starting JSON server at 3000")
+
+	// Rendering HTML files
+	router.LoadHTMLGlob("../resource/template/*.html")
+	// router.LoadHTMLGlob("../resource1/template/*.tmpl")
+
+	// This will load our index.html file
+	router.GET("/" , func(c *gin.Context){
+		c.HTML(200 , "index.html" , gin.H{})
+	})
+	
+	// router.GET("/tmpl" , func(c *gin.Context){
+	// 	c.HTML(200 , "index.tmpl" , gin.H{
+	// 		"title" : "I am site title",
+	// 		"body" : "I am the body of the page from the server side",
+	// 	})
+	// })
+
 
 	// Calling different methods to hanlde user grouping this routes as version v1
 	v1 := router.Group("/v1")
