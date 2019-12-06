@@ -8,6 +8,11 @@ import (
 	"io"
 )
 
+func checkRoute() gin.HandlerFunc {
+    return func (c *gin.Context) {
+        fmt.Println("Mind if")
+    }
+}
 
 func main(){
 	// Writing logs to file 
@@ -31,7 +36,7 @@ func main(){
 
 	// Calling different methods to hanlde user grouping this routes as version v1
 	v1 := router.Group("/v1")
-	
+	v1.Use(checkRoute()) // Using middleware
 	{
 		v1.GET("/users" , Methods.GetAllUsers)
 		v1.GET("/user/:name" , Methods.GetUserDetail) // Passing params

@@ -4,11 +4,13 @@
  - using env:	export GIN_MODE=release
  - using code:	gin.SetMode(gin.ReleaseMode)
 
-[GIN-debug] GET    /v1/users                 --> _/Users/izingamacmini/Backend/src/Methods.GetAllUsers (3 handlers)
-[GIN-debug] GET    /v1/user/:name            --> _/Users/izingamacmini/Backend/src/Methods.GetUserDetail (3 handlers)
-[GIN-debug] POST   /v1/user/new              --> _/Users/izingamacmini/Backend/src/Methods.CreateNewUser (3 handlers)
-[GIN-debug] PUT    /v1/user/:name            --> _/Users/izingamacmini/Backend/src/Methods.UpdateUserDetail (3 handlers)
-[GIN-debug] DELETE /v1/users                 --> _/Users/izingamacmini/Backend/src/Methods.DeleteAllUsers (3 handlers)
-[GIN-debug] DELETE /v1/user/:name            --> _/Users/izingamacmini/Backend/src/Methods.DeleteUserDetail (3 handlers)
+[GIN-debug] GET    /v1/users                 --> _/Users/izingamacmini/Backend/src/Methods.GetAllUsers (4 handlers)
+[GIN-debug] GET    /v1/user/:name            --> _/Users/izingamacmini/Backend/src/Methods.GetUserDetail (4 handlers)
+[GIN-debug] POST   /v1/user/new              --> _/Users/izingamacmini/Backend/src/Methods.CreateNewUser (4 handlers)
+[GIN-debug] PUT    /v1/user/:name            --> _/Users/izingamacmini/Backend/src/Methods.UpdateUserDetail (4 handlers)
+[GIN-debug] DELETE /v1/users                 --> _/Users/izingamacmini/Backend/src/Methods.DeleteAllUsers (4 handlers)
+[GIN-debug] DELETE /v1/user/:name            --> _/Users/izingamacmini/Backend/src/Methods.DeleteUserDetail (4 handlers)
 [GIN-debug] Listening and serving HTTP on :3000
-[GIN] 2019/12/06 - 12:55:33 | 200 |      328.52µs |             ::1 | GET      /v1/users
+[GIN] 2019/12/06 - 13:57:00 | 404 |         880ns |             ::1 | GET      /v1/panic
+[GIN] 2019/12/06 - 13:57:05 | 200 |     547.614µs |             ::1 | GET      /v1/users
+[GIN] 2019/12/06 - 13:57:24 | 200 |      87.949µs |             ::1 | GET      /v1/user/Kushagra
