@@ -35,7 +35,7 @@ func main(){
 	router := gin.Default()
 
 	// Rendering HTML files (This is just to check how template are loaded, I will convert this into full working module as we go forward)
-	router.LoadHTMLGlob("../resource/template/*.html")
+	router.LoadHTMLGlob("../resources/template/*.html")
 	// router.LoadHTMLGlob("../resource1/template/*.tmpl")
 
 	// This will load our index.html file
