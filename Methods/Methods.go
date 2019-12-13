@@ -52,7 +52,7 @@ func GetUserDetail(c *gin.Context){
 		}
 	}
 	// This will return the response in JSON format
-	c.JSON(200, gin.H{
+	c.JSON(404, gin.H{
 		"message" : "No user with name: " + name + " doesn't exist in our data.",
 	})
 }
@@ -107,7 +107,9 @@ func UpdateUserDetail(c *gin.Context){
 			}
 		}
 
-		c.String(200 , "Unale to find " + name + " in our DB for upation")	
+		c.JSON(404 , gin.H{
+			"message" : "Unale to find " + name + " in our DB for upation",
+		})	
 	}
 }
 
@@ -116,7 +118,9 @@ func DeleteAllUsers(c *gin.Context){
 	fmt.Println("Deleting users")
 	Users = nil
 	// This will return the response in string format
-	c.String(200, "All users are deleted")
+	c.JSON(200, gin.H{
+		"message" : "All users are deleted"
+	})
 }
 
 // Deleting a particular user detail
@@ -133,6 +137,8 @@ func DeleteUserDetail(c *gin.Context){
 	}
 	
 	// This will return the response as string type as not found
-	c.String(200, "Unable to delete user with name: " + name + " because doesn't exist in our data.")
+	c.String(404, gin.H{
+		"message" : "Unable to delete user with name: " + name + " because doesn't exist in our data."
+	})
 }
 
