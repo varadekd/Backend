@@ -8,12 +8,43 @@
 	- 
 	- index.html
 
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
 [GIN-debug] GET    /                         --> main.main.func1 (3 handlers)
 [GIN-debug] GET    /v1/users                 --> _/Users/izingamacmini/Backend/src/Methods.GetAllUsers (4 handlers)
 [GIN-debug] GET    /v1/user/:name            --> _/Users/izingamacmini/Backend/src/Methods.GetUserDetail (4 handlers)
 [GIN-debug] POST   /v1/user/new              --> _/Users/izingamacmini/Backend/src/Methods.CreateNewUser (4 handlers)
 [GIN-debug] PUT    /v1/user/:name            --> _/Users/izingamacmini/Backend/src/Methods.UpdateUserDetail (4 handlers)
-[GIN-debug] DELETE /v1/users                 --> _/Users/izingamacmini/Backend/src/Methods.DeleteAllUsers (4 handlers)
 [GIN-debug] DELETE /v1/user/:name            --> _/Users/izingamacmini/Backend/src/Methods.DeleteUserDetail (4 handlers)
 [GIN-debug] Listening and serving HTTP on :3000
-[GIN] 2019/12/06 - 16:01:18 | 200 |    1.468423ms |             ::1 | GET      /
+[GIN] 2019/12/13 - 17:41:17 | 200 |    1.009318ms |             ::1 | GET      /
+[GIN] 2019/12/13 - 17:41:17 | 200 |   13.570396ms |             ::1 | GET      /static/css/app.31dfadca10de1eaaf65bbbb8bf67aa3b.css
+[GIN] 2019/12/13 - 17:41:17 | 200 |    9.467344ms |             ::1 | GET      /static/js/manifest.8eda1f5ad1db59a698af.js
+[GIN] 2019/12/13 - 17:41:17 | 200 |    7.830709ms |             ::1 | GET      /static/js/app.2a711267969eb3daa1b5.js
+[GIN] 2019/12/13 - 17:41:17 | 200 |   15.010802ms |             ::1 | GET      /static/js/vendor.895b88d37867327a27c3.js
+[GIN] 2019/12/13 - 17:41:17 | 200 |     372.829µs |             ::1 | GET      /
+[GIN] 2019/12/13 - 17:41:18 | 200 |     412.592µs |             ::1 | GET      /
+[GIN] 2019/12/13 - 17:41:18 | 200 |    1.385269ms |             ::1 | GET      /static/js/manifest.8eda1f5ad1db59a698af.js.map
+[GIN] 2019/12/13 - 17:41:18 | 200 |     164.643µs |             ::1 | GET      /v1/users
+[GIN] 2019/12/13 - 17:41:18 | 200 |      314.72µs |             ::1 | GET      /static/js/app.2a711267969eb3daa1b5.js.map
+[GIN] 2019/12/13 - 17:41:18 | 200 |    9.222116ms |             ::1 | GET      /static/js/vendor.895b88d37867327a27c3.js.map
+[GIN] 2019/12/13 - 17:41:18 | 200 |     202.834µs |             ::1 | GET      /static/css/app.31dfadca10de1eaaf65bbbb8bf67aa3b.css
+[GIN] 2019/12/13 - 17:41:18 | 200 |      225.92µs |             ::1 | GET      /static/js/manifest.8eda1f5ad1db59a698af.js
+[GIN] 2019/12/13 - 17:41:18 | 200 |     400.265µs |             ::1 | GET      /static/js/app.2a711267969eb3daa1b5.js
+[GIN] 2019/12/13 - 17:41:18 | 200 |     584.523µs |             ::1 | GET      /static/js/vendor.895b88d37867327a27c3.js
+[GIN] 2019/12/13 - 17:41:18 | 200 |     273.153µs |             ::1 | GET      /static/js/manifest.8eda1f5ad1db59a698af.js.map
+[GIN] 2019/12/13 - 17:41:18 | 200 |   15.934436ms |             ::1 | GET      /static/js/vendor.895b88d37867327a27c3.js.map
+[GIN] 2019/12/13 - 17:41:18 | 200 |      55.128µs |             ::1 | GET      /v1/users
+[GIN] 2019/12/13 - 17:41:18 | 200 |     284.599µs |             ::1 | GET      /static/js/app.2a711267969eb3daa1b5.js.map
+[GIN] 2019/12/13 - 17:41:19 | 200 |     533.579µs |             ::1 | GET      /
+[GIN] 2019/12/13 - 17:41:20 | 200 |     216.295µs |             ::1 | GET      /static/css/app.31dfadca10de1eaaf65bbbb8bf67aa3b.css
+[GIN] 2019/12/13 - 17:41:20 | 200 |    1.485994ms |             ::1 | GET      /static/js/manifest.8eda1f5ad1db59a698af.js
+[GIN] 2019/12/13 - 17:41:20 | 200 |     606.711µs |             ::1 | GET      /static/js/vendor.895b88d37867327a27c3.js
+[GIN] 2019/12/13 - 17:41:20 | 200 |     353.032µs |             ::1 | GET      /static/js/app.2a711267969eb3daa1b5.js
+[GIN] 2019/12/13 - 17:41:20 | 200 |      297.12µs |             ::1 | GET      /static/js/manifest.8eda1f5ad1db59a698af.js.map
+[GIN] 2019/12/13 - 17:41:20 | 200 |   14.719944ms |             ::1 | GET      /static/js/vendor.895b88d37867327a27c3.js.map
+[GIN] 2019/12/13 - 17:41:20 | 200 |      41.251µs |             ::1 | GET      /v1/users
+[GIN] 2019/12/13 - 17:41:20 | 200 |     319.275µs |             ::1 | GET      /static/js/app.2a711267969eb3daa1b5.js.map
+[GIN] 2019/12/13 - 17:41:30 | 200 |      65.763µs |             ::1 | GET      /v1/user/Naveen
+[GIN] 2019/12/13 - 17:41:36 | 200 |   11.451243ms |             ::1 | PUT      /v1/user/Naveen
+[GIN] 2019/12/13 - 17:41:36 | 200 |       68.57µs |             ::1 | GET      /v1/users

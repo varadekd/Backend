@@ -1,7 +1,6 @@
 package Methods
 
 import (
-	"fmt"
 	"strings"
 	"github.com/gin-gonic/gin"	
 )
@@ -9,7 +8,7 @@ import (
 // Creating struct of type user
 type User struct{
 	Name 		string 	`json:"name" binding:"required"`
-	Age			int		`json:"age" binding:"required"`		
+	Age 		int 	`json:"age" binding:"required"`	
 	Company		string 	`json:"company" binding:"required"`
 	Location 	string 	`json:"location"`
 }
@@ -51,7 +50,8 @@ func GetUserDetail(c *gin.Context){
 			return
 		}
 	}
-	// This will return the response in JSON format
+
+	// If user is not found we will return 404 with message 
 	c.JSON(404, gin.H{
 		"message" : "No user with name: " + name + " doesn't exist in our data.",
 	})
@@ -65,14 +65,17 @@ func CreateNewUser(c *gin.Context){
 	err := c.ShouldBindJSON(&data)
 
 	if err != nil {
+		// In case of error we will send proper message to user
 		c.JSON(400 , gin.H{
 			"message" : err.Error(),
 		})
 	} else {
 		for _ , value := range Users{
-			// Checks for the duplicate entry in the users list
+			// Checks for the duplicate entry in the users list if found return it
 			if strings.ToLower(value.Name) == strings.ToLower(data.Name){
-				c.String(200 , "User already exist cannot create copy of the same user")
+				c.JSON(409 , gin.H{
+					"message" : "User already exist cannot create copy of the same user",
+				})
 				return
 			}
 		}
@@ -93,16 +96,13 @@ func UpdateUserDetail(c *gin.Context){
 		})
 	} else{
 
-		for _ , value := range Users{
+		for index , value := range Users{
 			
 			if strings.ToLower(value.Name) == strings.ToLower(name){
-				value.Age = data.Age
-				value.Company = data.Company
-				value.Location = data.Location
-				c.JSON(200 , gin.H{
-					"message" : "User " + value.Name + " is updated successfully.",
-					"data" : value,
-				})
+				Users[index].Age = data.Age
+				Users[index].Company = data.Company
+				Users[index].Location = data.Location
+				c.JSON(200 , value)
 				return
 			}
 		}
@@ -111,16 +111,6 @@ func UpdateUserDetail(c *gin.Context){
 			"message" : "Unale to find " + name + " in our DB for upation",
 		})	
 	}
-}
-
-// Delete all the user details
-func DeleteAllUsers(c *gin.Context){
-	fmt.Println("Deleting users")
-	Users = nil
-	// This will return the response in string format
-	c.JSON(200, gin.H{
-		"message" : "All users are deleted",
-	})
 }
 
 // Deleting a particular user detail

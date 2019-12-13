@@ -36,6 +36,7 @@ func main(){
 
 	// Rendering HTML files (This is just to check how template are loaded, I will convert this into full working module as we go forward)
 	router.LoadHTMLGlob("../resources/template/*.html")
+	router.Static("/static", "../resources/static")  // Loading static files
 	// router.LoadHTMLGlob("../resource1/template/*.tmpl")
 
 	// This will load our index.html file
@@ -59,7 +60,6 @@ func main(){
 		v1.GET("/user/:name" , Methods.GetUserDetail) // Passing params
 		v1.POST("/user/new" , Methods.CreateNewUser) // Passing params 
 		v1.PUT("/user/:name" , Methods.UpdateUserDetail) // Passing params
-		v1.DELETE("/users" , Methods.DeleteAllUsers)
 		v1.DELETE("/user/:name" , Methods.DeleteUserDetail) // Passing params
 	}
 
